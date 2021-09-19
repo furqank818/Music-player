@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+   
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music-Player</title>
+
+</head>
+<body>
+    
+    <audio src="" id="audio"></audio>
+    
+    <div class="music-player">
+        <i class="fas fa-volume-up" id="volumeup"></i>
+        <div class = "volume-bar"><input id="vol-control" type="range" value="20" min="0" max="100" step="1" oninput="thisVolume(this.value)" ></input> </div>
+        <i class="fas fa-volume-mute" id="volumedown"></i>
+      
+      
+       <div class="disk">
+            
+       </div>
+       <h1 class="music-name">song one</h1>
+       <p class="artist-name">artist</p>
+       <div class="song-slider">
+           <input type="range" value="0" class="seek-bar">
+           <span class="current-time">00:00</span>
+           <span class="song-duration">00:00</span>
+       </div>
+       <div class="controls">
+        <button title="loop song" class="btn" id="loopbutton" onclick="handleRepeat()"><i class="fas fa-redo fa-lg" ></i></button>
+           <button class="btn backward-btn"><i class="fas fa-backward fa-lg"></i></button>
+           <button class="play-btn pause">
+               <span></span>
+               <span></span>
+           </button>
+           <button class="btn forward-btn"><i class="fas fa-forward fa-lg"></i></button>
+           <button title="playlist" class="btn" id="playlist"><i class="fas fa-list fa-lg"></i></button>
+           </div>
+           <div class="music-list">
+            <div class="header">
+              <div class="row">
+                <i class= "fas fa-list fa-lg"></i>
+                <span style="padding-left:10px;">Music list</span>
+              </div>
+              
+            </div>
+            <div class="list-container">
+            <ul>
+            </ul>
+            </div>
+          </div>
+       
+       <div class="visualizer-container">
+           
+      </div>
+    </div>
+    
+    
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script src="visual.js"></script>
+    <script src="https://kit.fontawesome.com/6a42b639ae.js" crossorigin="anonymous"></script>
+    
+</body>
+</html>
