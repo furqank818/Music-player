@@ -1,6 +1,4 @@
 
-let currentMusic = 0;
-
 const music = document.querySelector('#audio');
 const seekBar = document.querySelector('.seek-bar');
 const songName = document.querySelector(".music-name");
@@ -14,6 +12,7 @@ const backwardBtn = document.querySelector(".backward-btn");
 const playListBtn = document.querySelector("#playlist");
 const musicList = document.querySelector(".music-list");
 const udL = document.querySelector("ul");
+
 
 
 
@@ -36,6 +35,8 @@ const setMusic = (i) => {
 
 
 
+
+
 //formatting the time
 const formatTime = (time)=>{
     let min = Math.floor(time / 60);
@@ -52,6 +53,7 @@ const formatTime = (time)=>{
 playBtn.addEventListener('click',()=>{
     if(playBtn.className.includes('pause')){
         music.play();
+        console.log("play");
         
     }else{
         music.pause();
@@ -78,8 +80,10 @@ forwardBtn.addEventListener("click",() => {
         currentMusic++;
     }
     setMusic(currentMusic);
-    playMusic();
-})
+    music.play();
+    playBtn.classList.remove("pause");
+    disk.classList.add("play");
+});
 // backwardbutton
 backwardBtn.addEventListener("click",()=>{
     if(currentMusic <= 0){
@@ -88,14 +92,14 @@ backwardBtn.addEventListener("click",()=>{
         currentMusic--;
     }
     setMusic(currentMusic);
-    playMusic();
-})
-//function to play song
-const playMusic = () =>{
     music.play();
     playBtn.classList.remove("pause");
     disk.classList.add("play");
-}
+});
+//function to play song
+
+
+
 setInterval(() => {
     seekBar.value = music.currentTime;
     currentTime.innerHTML = formatTime(music.currentTime);
@@ -145,11 +149,16 @@ for(let i = 0;i < songs.length;i++){
     udL.insertAdjacentHTML("beforeend",listTag);
 }
 // song will be played when clicked from the playlist
-function clicked(songNo){
+  function clicked(songNo){
     
-    let musicIndex = songNo; //updating current song index with clicked li index
+   let musicIndex = songNo; //updating current song index with clicked li index
     setMusic(musicIndex);
-    playMusic();
-  }
+    music.play();
+     playBtn.classList.remove("pause");
+     disk.classList.add("play");
+   }
+
+   setMusic(0);
+
 
 
